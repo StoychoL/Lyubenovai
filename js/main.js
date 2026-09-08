@@ -137,12 +137,22 @@
   function playHero() {
     video.currentTime = 0;
     const p = video.play();
-    if (p) p.then(() => { media.classList.remove("is-fallback"); media.classList.add("is-playing"); }).catch(showFallback);
+    if (p) p.catch(showFallback);
   }
-  if (video.readyState >= 2) playHero();
-  else video.addEventListener("loadeddata", playHero, { once: true });
-  video.addEventListener("error", showFallback, true);
-  setTimeout(showFallback, 2500);
+  /* "playing" is the only signal that frames are actually on screen — the play()
+     promise resolves a beat earlier, which showed an empty box on slow connections */
+  video.addEventListener("playing", () => {
+    media.classList.remove("is-fallback");
+    media.classList.add("is-playing");
+  });
+  video.addEventListener("error", showFallback);
+  /* iOS reports preload="auto" as "metadata" and never fires loadeddata, so play()
+     has to be called outright rather than waited on */
+  playHero();
+  /* Low Power Mode refuses autoplay even when muted; retry on the first touch */
+  document.addEventListener("touchstart", () => {
+    if (!media.classList.contains("is-playing")) playHero();
+  }, { once: true, passive: true });
   media.addEventListener("click", () => { if (media.classList.contains("is-playing")) playHero(); });
 
   /* Line splitting measures wrap points, so it has to wait for the display font */

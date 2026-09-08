@@ -301,7 +301,9 @@ h1, h2, h3, p { margin: 0; }
   mask-composite: intersect;
 }
 .hero__video { mix-blend-mode: multiply; opacity: 0; transition: opacity .6s ease; }
-.hero__still { opacity: 0; transform: scale(1.04); transform-origin: 50% 100%; transition: opacity .8s ease, transform .9s ease; }
+/* Visible by default so the hero is never an empty box — if the clip is blocked,
+   rejected, or JS never runs, the photo is already there and simply stays */
+.hero__still { opacity: 1; transform: none; transform-origin: 50% 100%; transition: opacity .8s ease, transform .9s ease; }
 .hero__media.is-playing .hero__video { opacity: 1; }
 .hero__media.is-fallback .hero__still, .no-motion .hero__still { opacity: 1; transform: none; }
 .hero__media.is-playing .hero__still { opacity: 0; }
