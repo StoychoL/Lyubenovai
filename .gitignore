@@ -1,0 +1,15 @@
+# macOS
+.DS_Store
+._*
+
+# Working screenshots / references (not part of the site)
+L[0-9].png
+L[0-9][0-9].png
+S[0-9].png
+S[0-9][0-9].png
+CP.jpg
+
+# Editor / tooling
+.vscode/
+.idea/
+node_modules/

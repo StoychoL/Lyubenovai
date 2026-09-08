@@ -1,0 +1,442 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Stoycho Lyubenov — AI Automation Consultant</title>
+  <meta name="description" data-i18n-content="meta.description" content="Stoycho Lyubenov builds personalised AI workflows, automations and agents around how your business actually runs. Claude, n8n and Google Workspace native." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600&family=Oswald:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+  <header class="topbar">
+    <a href="#home" class="topbar__name" data-i18n="footer.big">Stoycho Lyubenov</a>
+    <div class="topbar__actions">
+      <div class="langswitch" role="group" data-i18n-aria-label="sidebar.language" aria-label="Language">
+        <button type="button" data-lang="en" aria-pressed="true" class="is-active">EN</button>
+        <button type="button" data-lang="bg" aria-pressed="false">BG</button>
+      </div>
+      <button class="topbar__toggle" id="menuToggle" data-i18n-aria-label="sidebar.menu" aria-label="Open menu" aria-expanded="false" aria-controls="sidebar">
+        <span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar__profile">
+      <img src="assets/img/profile.png" alt="Stoycho Lyubenov" class="sidebar__avatar" width="64" height="64" />
+      <p class="sidebar__role" data-i18n-html="sidebar.role">AI Automation<br />Consultant</p>
+      <p class="sidebar__name" data-i18n-html="sidebar.name">Stoycho<br />Lyubenov</p>
+    </div>
+
+    <nav class="sidebar__nav" aria-label="Sections">
+      <a href="#home" data-nav="home" class="is-active" data-i18n="nav.home">Home</a>
+      <a href="#about" data-nav="about" data-i18n="nav.about">About me</a>
+      <a href="#services" data-nav="services" data-i18n="nav.services">Services</a>
+      <a href="#process" data-nav="process" data-i18n="nav.process">Process</a>
+      <a href="#webbuild" data-nav="webbuild" data-i18n="nav.webbuild">Web build</a>
+      <a href="#toolkit" data-nav="toolkit" data-i18n="nav.toolkit">Toolkit</a>
+      <a href="#contact" data-nav="contact" data-i18n="nav.contact">Contact</a>
+    </nav>
+
+    <div class="sidebar__block">
+      <p class="sidebar__label" data-i18n="sidebar.language">Language</p>
+      <div class="langswitch langswitch--sidebar" role="group" data-i18n-aria-label="sidebar.language" aria-label="Language">
+        <button type="button" data-lang="en" aria-pressed="true" class="is-active">EN</button>
+        <button type="button" data-lang="bg" aria-pressed="false">BG</button>
+      </div>
+    </div>
+
+    <div class="sidebar__block">
+      <p class="sidebar__label" data-i18n="sidebar.connect">Connect with</p>
+      <div class="sidebar__social">
+        <a href="https://www.linkedin.com/in/stoycho-lyubenov-b8025015b/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">in</a>
+        <a href="#" aria-label="X">x</a>
+        <a href="#" aria-label="GitHub">gh</a>
+        <a href="https://www.slconsultings.uk/" target="_blank" rel="noopener noreferrer" aria-label="SL Consultings">sl</a>
+        <a href="mailto:hello@stoycholyubenov.com" aria-label="Email">@</a>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar__scrim" id="scrim"></div>
+
+  <main class="content">
+
+    <!-- HERO -->
+    <section class="hero" id="home">
+      <div class="hero__text">
+        <p class="hero__eyebrow" data-hero data-i18n="hero.eyebrow">Hey there, I'm</p>
+        <h1 class="hero__title">
+          <span class="hero__line" data-hero data-i18n="hero.first">Stoycho</span>
+          <span class="hero__line" data-hero data-i18n="hero.last">Lyubenov</span>
+        </h1>
+        <p class="hero__tagline" data-hero data-i18n="hero.tagline">
+          Building personalised AI workflows, automations and agents around how your business actually runs.
+        </p>
+        <p class="hero__status" data-hero><span class="dot"></span><span data-i18n="hero.status">Available for new projects</span></p>
+        <div class="hero__actions" data-hero>
+          <a href="#contact" class="btn btn--primary"><span data-i18n="hero.cta">Book a Discovery Call</span> <span aria-hidden="true">↗</span></a>
+          <span class="hero__meta" data-i18n="hero.meta">10 yrs sales · 5 yrs AI · London</span>
+        </div>
+      </div>
+
+      <div class="hero__visual">
+        <div class="hero__media" id="heroMedia">
+          <video id="heroVideo" class="hero__video" muted playsinline preload="auto" aria-label="Stoycho Lyubenov">
+            <source src="assets/video/hero.webm" type="video/webm" />
+            <source src="assets/video/hero.mp4" type="video/mp4" />
+          </video>
+          <img src="assets/img/profile-transparent.png" alt="Stoycho Lyubenov" class="hero__still" width="397" height="504" />
+        </div>
+      </div>
+    </section>
+
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee__track">
+        <span>Claude</span><span>n8n</span><span>Google Workspace</span><span>LangGraph</span><span>MCP</span><span>Vector databases</span><span>MLflow</span><span>RAG</span><span>Multi-agent systems</span><span>LLM evaluation</span>
+        <span>Claude</span><span>n8n</span><span>Google Workspace</span><span>LangGraph</span><span>MCP</span><span>Vector databases</span><span>MLflow</span><span>RAG</span><span>Multi-agent systems</span><span>LLM evaluation</span>
+      </div>
+    </div>
+
+    <!-- ABOUT -->
+    <section class="section about" id="about">
+      <p class="section__label" data-i18n="about.label">About</p>
+      <h2 class="section__title" data-i18n="about.title">I turn manual, repetitive work into AI systems that run themselves — built for your business, not from a template.</h2>
+
+      <div class="stats">
+        <div class="stat" data-reveal><span class="stat__num" data-count="10">0</span><span class="stat__suffix">+</span><p data-i18n="about.stat1">Years in sales</p></div>
+        <div class="stat" data-reveal><span class="stat__num" data-count="5">0</span><span class="stat__suffix">+</span><p data-i18n="about.stat2">Years in AI</p></div>
+        <div class="stat" data-reveal><span class="stat__num" data-count="5">0</span><span class="stat__suffix">+</span><p data-i18n="about.stat5">Years building websites</p></div>
+        <div class="stat" data-reveal><span class="stat__num" data-count="4">0</span><span class="stat__suffix"></span><p data-i18n="about.stat3">Stage delivery process</p></div>
+        <div class="stat" data-reveal><span class="stat__num">24</span><span class="stat__suffix">/7</span><p data-i18n="about.stat4">Managed support</p></div>
+      </div>
+
+      <div class="about__grid">
+        <div class="about__copy" data-reveal>
+          <p data-i18n="about.copy1">I'm Stoycho, a 33-year-old AI automation consultant based in London. I spent ten years in sales before moving into the AI sector, where for the last five years I've been designing and shipping workflows, automations and agents of every shape.</p>
+          <p data-i18n="about.copy2">That sales background matters: I talk in terms of revenue, hours saved and ROI — not model benchmarks. I'm obsessive about detail, and every workflow and agent I build is personalised to how your business actually operates.</p>
+          <p data-i18n="about.copy3">I also design and build websites from scratch — sitemap and wireframes, the words and the order they're read in, the colour and type system, the motion, and the performance, SEO and accessibility work that makes it production-ready. This site is one of them.</p>
+        </div>
+        <div class="about__card" data-reveal>
+          <p class="about__card-label" data-i18n="about.cardLabel">How I work</p>
+          <ul data-i18n-list="about.cardList">
+            <li>Claude, n8n and Google Workspace as the core stack</li>
+            <li>Working prototypes in a sandbox — not slide decks</li>
+            <li>Every integration point mapped before code is written</li>
+            <li>Ongoing optimisation once you're live</li>
+          </ul>
+          <a href="#process" class="link-arrow"><span data-i18n="about.cardLink">See the process</span> <span aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section class="section services" id="services">
+      <p class="section__label" data-i18n="services.label">Services</p>
+      <h2 class="section__title" data-i18n="services.title">Core expertise</h2>
+
+      <div class="services__grid">
+        <article class="card card--featured" data-reveal>
+          <span class="card__num">01</span>
+          <div class="card__lead">
+            <span class="card__tag" data-i18n="services.web.tag">New</span>
+            <h3 data-i18n="services.web.title">Website Design &amp; Build</h3>
+            <p data-i18n="services.web.body">Complete websites designed and built from scratch — sitemap and wireframes, the copy and the order it's read in, the colour and type system, the motion, and the optimisation that makes it production-ready. No templates, no page builders.</p>
+          </div>
+          <ul class="chips" data-i18n-list="services.web.chips"><li>Wireframing</li><li>Information architecture</li><li>UX copywriting</li><li>Colour &amp; type systems</li><li>Design tokens</li><li>Motion design</li><li>Core Web Vitals</li><li>SEO</li><li>Accessibility (WCAG)</li><li>Responsive build</li><li>Deployment</li></ul>
+        </article>
+
+        <article class="card" data-reveal>
+          <span class="card__num">02</span>
+          <h3 data-i18n="services.s1.title">Workflow Automation</h3>
+          <p data-i18n="services.s1.body">End-to-end business processes automated with n8n and your Google services — triggered, routed and reported without a human in the loop.</p>
+          <ul class="chips" data-i18n-list="services.s1.chips"><li>n8n pipelines</li><li>Google Workspace</li><li>API integrations</li><li>Scheduling & triage</li></ul>
+        </article>
+
+        <article class="card" data-reveal>
+          <span class="card__num">03</span>
+          <h3 data-i18n="services.s2.title">AI Agents & Orchestration</h3>
+          <p data-i18n="services.s2.body">Agents that call tools, remember context and coordinate with each other — designed with proven agentic patterns.</p>
+          <ul class="chips" data-i18n-list="services.s2.chips"><li>Function calling</li><li>Multi-agent systems</li><li>LangGraph</li><li>MCP</li><li>Agent memory</li></ul>
+        </article>
+
+        <article class="card" data-reveal>
+          <span class="card__num">04</span>
+          <h3 data-i18n="services.s3.title">LLM Apps & RAG</h3>
+          <p data-i18n="services.s3.body">Chat and search over your own documents with retrieval that actually finds the right answer.</p>
+          <ul class="chips" data-i18n-list="services.s3.chips"><li>Prompt engineering</li><li>Embeddings</li><li>Vector databases</li><li>Document chunking</li><li>Advanced retrieval</li></ul>
+        </article>
+
+        <article class="card" data-reveal>
+          <span class="card__num">05</span>
+          <h3 data-i18n="services.s4.title">LLMOps & Evaluation</h3>
+          <p data-i18n="services.s4.body">Deployed, monitored and measured — so you know your AI is working, not just running.</p>
+          <ul class="chips" data-i18n-list="services.s4.chips"><li>Deployment & CI/CD</li><li>Observability</li><li>LLM-as-a-judge</li><li>RAG & agent evals</li><li>Benchmarking</li></ul>
+        </article>
+
+        <article class="card" data-reveal>
+          <span class="card__num">06</span>
+          <h3 data-i18n="services.s5.title">ML Foundations</h3>
+          <p data-i18n="services.s5.body">Classic machine learning where it beats an LLM — with proper pipelines, tracking and production monitoring.</p>
+          <ul class="chips" data-i18n-list="services.s5.chips"><li>scikit-learn</li><li>Data quality</li><li>MLflow</li><li>DVC</li><li>Production monitoring</li></ul>
+        </article>
+
+        <article class="card" data-reveal>
+          <span class="card__num">07</span>
+          <h3 data-i18n="services.s6.title">Safety, Guardrails & Governance</h3>
+          <p data-i18n="services.s6.body">AI you can trust in front of customers — with security, bias checks and governance frameworks built in.</p>
+          <ul class="chips" data-i18n-list="services.s6.chips"><li>Responsible AI</li><li>LLM security</li><li>Guardrails</li><li>Data ethics</li><li>Governance</li></ul>
+        </article>
+      </div>
+    </section>
+
+    <!-- PROCESS -->
+    <section class="section process" id="process">
+      <p class="section__label" data-i18n="process.label">Process</p>
+      <h2 class="section__title" data-i18n="process.title">Every project runs through four stages</h2>
+
+      <ol class="timeline">
+        <li class="timeline__item" data-reveal>
+          <span class="timeline__num" data-i18n="process.stage.0">Stage 1</span>
+          <div>
+            <h3 data-i18n="process.p1.title">Discovery Audit</h3>
+            <p data-i18n="process.p1.body">We deep-dive into your manual workflows to find high-ROI automation opportunities — forensic clarity on where AI delivers maximum leverage.</p>
+          </div>
+        </li>
+        <li class="timeline__item" data-reveal>
+          <span class="timeline__num" data-i18n="process.stage.1">Stage 2</span>
+          <div>
+            <h3 data-i18n="process.p2.title">Architecture Mapping</h3>
+            <p data-i18n="process.p2.body">We design a custom blueprint connecting Claude, n8n and your Google services — mapping every integration point before a line of code is written.</p>
+          </div>
+        </li>
+        <li class="timeline__item" data-reveal>
+          <span class="timeline__num" data-i18n="process.stage.2">Stage 3</span>
+          <div>
+            <h3 data-i18n="process.p3.title">Rapid Prototype & Build</h3>
+            <p data-i18n="process.p3.body">A functional system is deployed in a sandbox for testing. You see working systems fast — not slide decks and promises.</p>
+          </div>
+        </li>
+        <li class="timeline__item" data-reveal>
+          <span class="timeline__num" data-i18n="process.stage.3">Stage 4</span>
+          <div>
+            <h3 data-i18n="process.p4.title">Launch & Managed Support</h3>
+            <p data-i18n="process.p4.body">We integrate into your live environment and provide ongoing optimisation. Your automations run 24/7 — and so does our commitment.</p>
+          </div>
+        </li>
+      </ol>
+    </section>
+
+    <!-- WEB BUILD -->
+    <section class="section webbuild" id="webbuild">
+      <p class="section__label" data-i18n="webbuild.label">Web build</p>
+      <h2 class="section__title" data-i18n="webbuild.title">From blank page to production</h2>
+      <p class="webbuild__lead" data-reveal data-i18n="webbuild.lead">When the project is a website, this is what happens inside those four stages — seven steps, in this order, every time.</p>
+
+      <ol class="timeline">
+        <li class="timeline__item" data-reveal>
+          <span class="timeline__num" data-i18n="webbuild.step.0">Step 01</span>
+          <div>
+            <h3 data-i18n="webbuild.w1.title">Discovery &amp; Sitemap</h3>
+            <p data-i18n="webbuild.w1.body">Who the site is for, what it has to make them do, and every page and section needed to get there. The information architecture is agreed before anything is drawn.</p>
+          </div>
+        </li>
+        <li class="timeline__item" data-reveal>
+          <span class="timeline__num" data-i18n="webbuild.step.1">Step 02</span>
+          <div>
+            <h3 data-i18n="webbuild.w2.title">Wireframes</h3>
+            <p data-i18n="webbuild.w2.body">Layout and hierarchy in greyscale — what sits where, what comes first, what each screen weighs. Structure is settled while it's still cheap to change.</p>
+          </div>
+        </li>
+        <li class="timeline__item" data-reveal>
+          <span class="timeline__num" data-i18n="webbuild.step.2">Step 03</span>
+          <div>
+            <h3 data-i18n="webbuild.w3.title">Copy &amp; Information Style</h3>
+            <p data-i18n="webbuild.w3.body">What each section actually says, in what order, in what voice. Every line is checked for clarity and scannability, because a beautiful page that doesn't explain itself has failed.</p>
+          </div>
+        </li>
+        <li class="timeline__item" data-reveal>
+          <span class="timeline__num" data-i18n="webbuild.step.3">Step 04</span>
+          <div>
+            <h3 data-i18n="webbuild.w4.title">Colour &amp; Visual System</h3>
+            <p data-i18n="webbuild.w4.body">A palette with real contrast ratios, a type scale, spacing tokens and reusable components — a system, not a set of one-off screens.</p>
+          </div>
+        </li>
+        <li class="timeline__item" data-reveal>
+          <span class="timeline__num" data-i18n="webbuild.step.4">Step 05</span>
+          <div>
+            <h3 data-i18n="webbuild.w5.title">Motion &amp; Interaction</h3>
+            <p data-i18n="webbuild.w5.body">Scroll reveals, micro-interactions and transitions that direct attention rather than perform. Everything degrades cleanly for reduced-motion and low-power devices.</p>
+          </div>
+        </li>
+        <li class="timeline__item" data-reveal>
+          <span class="timeline__num" data-i18n="webbuild.step.5">Step 06</span>
+          <div>
+            <h3 data-i18n="webbuild.w6.title">Optimisation</h3>
+            <p data-i18n="webbuild.w6.body">Core Web Vitals, compressed assets, responsive behaviour on real devices, SEO metadata, and accessibility — contrast, focus states, semantics and keyboard paths.</p>
+          </div>
+        </li>
+        <li class="timeline__item" data-reveal>
+          <span class="timeline__num" data-i18n="webbuild.step.6">Step 07</span>
+          <div>
+            <h3 data-i18n="webbuild.w7.title">Launch &amp; Production</h3>
+            <p data-i18n="webbuild.w7.body">Built, deployed, analytics wired up and handed over with documentation — then iterated on with real numbers instead of opinions.</p>
+          </div>
+        </li>
+      </ol>
+    </section>
+
+    <!-- TOOLKIT -->
+    <section class="section toolkit" id="toolkit">
+      <p class="section__label" data-i18n="toolkit.label">Toolkit</p>
+      <h2 class="section__title" data-i18n="toolkit.title">Everything I work with</h2>
+
+      <div class="toolkit__groups">
+        <details class="group" data-reveal open>
+          <summary>
+            <span class="group__num">01</span>
+            <span class="group__title" data-i18n="toolkit.g1.title">LLMs & RAG</span>
+            <span class="group__count" data-i18n="toolkit.g1.count">8 areas</span>
+            <span class="group__icon" aria-hidden="true"></span>
+          </summary>
+          <div class="group__body">
+            <ul class="chips chips--lg" data-i18n-list="toolkit.g1.chips">
+              <li>LLM fundamentals</li><li>Prompt engineering for devs</li><li>Working with LLM APIs</li><li>Embeddings & semantic search</li><li>Vector databases</li><li>Retrieval augmented generation</li><li>Document processing & chunking</li><li>Advanced retrieval</li>
+            </ul>
+          </div>
+        </details>
+        <details class="group" data-reveal>
+          <summary>
+            <span class="group__num">02</span>
+            <span class="group__title" data-i18n="toolkit.g2.title">Integration, Agents & Orchestration</span>
+            <span class="group__count" data-i18n="toolkit.g2.count">10 areas</span>
+            <span class="group__icon" aria-hidden="true"></span>
+          </summary>
+          <div class="group__body">
+            <ul class="chips chips--lg" data-i18n-list="toolkit.g2.chips">
+              <li>Function calling & tool use</li><li>Structured outputs & validation</li><li>LLM apps with frameworks</li><li>Agent fundamentals</li><li>Agentic design patterns</li><li>Orchestration with LangGraph</li><li>Multi-agent systems</li><li>Agent memory & state</li><li>Agentic RAG</li><li>Model Context Protocol (MCP)</li>
+            </ul>
+          </div>
+        </details>
+        <details class="group" data-reveal>
+          <summary>
+            <span class="group__num">03</span>
+            <span class="group__title" data-i18n="toolkit.g3.title">Ops & Evaluation</span>
+            <span class="group__count" data-i18n="toolkit.g3.count">10 areas</span>
+            <span class="group__icon" aria-hidden="true"></span>
+          </summary>
+          <div class="group__body">
+            <ul class="chips chips--lg" data-i18n-list="toolkit.g3.chips">
+              <li>LLMOps fundamentals</li><li>Serving open source models</li><li>Deploying LLM applications</li><li>Observability & monitoring</li><li>CI/CD for LLM applications</li><li>Evaluation fundamentals</li><li>LLM-as-a-judge</li><li>RAG evaluation</li><li>Evaluating AI agents</li><li>Benchmarking models</li>
+            </ul>
+          </div>
+        </details>
+        <details class="group" data-reveal>
+          <summary>
+            <span class="group__num">04</span>
+            <span class="group__title" data-i18n="toolkit.g4.title">ML Foundations</span>
+            <span class="group__count" data-i18n="toolkit.g4.count">7 areas</span>
+            <span class="group__icon" aria-hidden="true"></span>
+          </summary>
+          <div class="group__body">
+            <ul class="chips chips--lg" data-i18n-list="toolkit.g4.chips">
+              <li>ML fundamentals & metrics</li><li>scikit-learn pipelines & training</li><li>Data engineering & quality</li><li>Experiment tracking with MLflow</li><li>Data versioning with DVC</li><li>Deployment & CI/CD</li><li>Monitoring ML in production</li>
+            </ul>
+          </div>
+        </details>
+        <details class="group" data-reveal>
+          <summary>
+            <span class="group__num">05</span>
+            <span class="group__title" data-i18n="toolkit.g5.title">Safety & Ethics</span>
+            <span class="group__count" data-i18n="toolkit.g5.count">5 areas</span>
+            <span class="group__icon" aria-hidden="true"></span>
+          </summary>
+          <div class="group__body">
+            <ul class="chips chips--lg" data-i18n-list="toolkit.g5.chips">
+              <li>Responsible AI practices</li><li>Data ethics & bias</li><li>LLM security & risk</li><li>Guardrails</li><li>AI governance & frameworks</li>
+            </ul>
+          </div>
+        </details>
+        <details class="group" data-reveal>
+          <summary>
+            <span class="group__num">06</span>
+            <span class="group__title" data-i18n="toolkit.g6.title">Web Design &amp; Front-end</span>
+            <span class="group__count" data-i18n="toolkit.g6.count">9 areas</span>
+            <span class="group__icon" aria-hidden="true"></span>
+          </summary>
+          <div class="group__body">
+            <ul class="chips chips--lg" data-i18n-list="toolkit.g6.chips">
+              <li>Wireframing &amp; prototyping</li><li>Information architecture</li><li>UX copywriting &amp; tone</li><li>Colour &amp; type systems</li><li>Design tokens &amp; components</li><li>Motion &amp; micro-interactions</li><li>Performance &amp; Core Web Vitals</li><li>Accessibility (WCAG)</li><li>SEO &amp; metadata</li>
+            </ul>
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <!-- WHY -->
+    <section class="section why">
+      <div class="why__cta" data-reveal>
+        <h2 data-i18n="why.title">Let's automate the work that's slowing you down.</h2>
+        <a href="#contact" class="btn btn--light"><span data-i18n="why.cta">Start a project</span> <span aria-hidden="true">↗</span></a>
+      </div>
+      <div class="why__list" data-reveal>
+        <p class="section__label section__label--light" data-i18n="why.label">Why work with me?</p>
+        <ul class="pills" data-i18n-list="why.pills">
+          <li>ROI-first</li><li>Sales-trained communicator</li><li>Working prototypes, not decks</li><li>Claude + n8n + Google native</li><li>24/7 managed support</li><li>Detail-obsessed</li><li>Bespoke, never templated</li><li>Runs in your live environment</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="section contact" id="contact">
+      <p class="section__label" data-i18n="contact.label">Contact</p>
+      <h2 class="section__title" data-i18n="contact.title">Tell me what's slowing you down</h2>
+
+      <form class="form" id="contactForm" action="https://formspree.io/f/FORM_ID" method="POST" novalidate>
+        <div class="form__row">
+          <label><span data-i18n="contact.name">Full name</span><input type="text" name="name" required autocomplete="name" /></label>
+          <label><span data-i18n="contact.email">Email address</span><input type="email" name="email" required autocomplete="email" /></label>
+        </div>
+        <label><span data-i18n="contact.company">Company / website</span><input type="text" name="company" autocomplete="organization" /></label>
+        <label><span data-i18n="contact.interest">What are you interested in?</span>
+          <select name="interest" data-i18n-options="contact.options">
+            <option>Workflow Automation</option>
+            <option>AI Agents & Orchestration</option>
+            <option>LLM Apps & RAG</option>
+            <option>LLMOps & Evaluation</option>
+            <option>ML Foundations</option>
+            <option>Safety, Guardrails & Governance</option>
+            <option>Not sure yet</option>
+          </select>
+        </label>
+        <label><span data-i18n="contact.message">Tell me about your project</span><textarea name="message" rows="5" required data-i18n-placeholder="contact.placeholder" placeholder="Share your goals, the manual work you'd like gone, and any deadlines."></textarea></label>
+        <button type="submit" class="btn btn--primary btn--block"><span data-i18n="contact.submit">Send your message</span> <span aria-hidden="true">↗</span></button>
+        <p class="form__status" id="formStatus" role="status" aria-live="polite"></p>
+      </form>
+
+      <div class="contact__meta">
+        <img src="assets/img/profile.png" alt="" width="40" height="40" />
+        <a href="mailto:hello@stoycholyubenov.com">hello@stoycholyubenov.com</a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <nav class="footer__nav" aria-label="Footer">
+      <a href="#home" data-i18n="nav.home">Home</a><a href="#about" data-i18n="nav.about">About me</a><a href="#services" data-i18n="nav.services">Services</a><a href="#process" data-i18n="nav.process">Process</a><a href="#webbuild" data-i18n="nav.webbuild">Web build</a><a href="#contact" data-i18n="nav.contact">Contact</a>
+    </nav>
+    <p class="footer__big" aria-hidden="true" data-i18n="footer.big">Stoycho Lyubenov</p>
+    <p class="footer__copy" data-i18n="footer.copy">© 2026 Stoycho Lyubenov. All rights reserved.</p>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+  <script src="js/i18n.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
