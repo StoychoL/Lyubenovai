@@ -131,7 +131,7 @@
     },
     {
       "parameters": {
-        "sendTo": "hello@stoycholyubenov.com",
+        "sendTo": "stoycho.lyubenov@gmail.com",
         "subject": "=Project enquiry — {{ $json.interest }} — {{ $json.name }}",
         "emailType": "html",
         "message": "=<div style=\"font-family:-apple-system,Segoe UI,Helvetica,Arial,sans-serif;font-size:15px;line-height:1.6;color:#1a1a1a\">\n<h2 style=\"margin:0 0 16px;font-size:18px\">New enquiry from the website</h2>\n<table cellpadding=\"0\" cellspacing=\"0\" style=\"border-collapse:collapse;margin-bottom:20px\">\n<tr><td style=\"padding:4px 16px 4px 0;color:#666\">Name</td><td style=\"padding:4px 0\"><strong>{{ $json.name }}</strong></td></tr>\n<tr><td style=\"padding:4px 16px 4px 0;color:#666\">Email</td><td style=\"padding:4px 0\"><a href=\"mailto:{{ $json.email }}\">{{ $json.email }}</a></td></tr>\n<tr><td style=\"padding:4px 16px 4px 0;color:#666\">Company</td><td style=\"padding:4px 0\">{{ $json.company }}</td></tr>\n<tr><td style=\"padding:4px 16px 4px 0;color:#666\">Interest</td><td style=\"padding:4px 0\">{{ $json.interest }}</td></tr>\n<tr><td style=\"padding:4px 16px 4px 0;color:#666\">Received</td><td style=\"padding:4px 0\">{{ $json.timestamp }}</td></tr>\n</table>\n<div style=\"padding:16px;background:#f5f4f0;border-radius:8px;white-space:pre-wrap\">{{ $json.message }}</div>\n<p style=\"margin:20px 0 0;font-size:13px;color:#888\">Reply directly to this email to reach {{ $json.name }}.</p>\n</div>",

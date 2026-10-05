@@ -24,7 +24,7 @@
   const status = document.getElementById("formStatus");
   const elapsedField = document.getElementById("formElapsed");
   const submitBtn = form.querySelector("button[type='submit']");
-  const FALLBACK_EMAIL = "hello@stoycholyubenov.com";
+  const FALLBACK_EMAIL = "stoycho.lyubenov@gmail.com";
   const loadedAt = Date.now();
 
   form.addEventListener("submit", async (e) => {
