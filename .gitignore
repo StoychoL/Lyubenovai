@@ -17,3 +17,5 @@ node_modules/
 # Local env (Vercel pulls the real values from the project settings)
 .env
 .env*.local
+.vercel
+.env*
