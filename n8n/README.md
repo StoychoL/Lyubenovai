@@ -28,9 +28,24 @@ server-side, and so the browser request is same-origin (no CORS).
 4. **Activate the workflow.** An inactive workflow's production webhook returns
    404, which is the most common reason this appears broken.
 
-5. **Set the Vercel env vars** (Production *and* Preview):
-   - `N8N_CONTACT_WEBHOOK_URL` = `https://n8n.srv925030.hstgr.cloud/webhook/contact-form`
+5. **Set one Vercel env var** (Production *and* Preview):
    - `N8N_WEBHOOK_SECRET` = the same random value as step 3
+
+   Then **redeploy**. Vercel bakes env vars into a build, so saving the variable
+   does nothing to the deployment already serving traffic.
+
+   The webhook URL is defaulted in `api/contact.js` and needs no variable. Set
+   `N8N_CONTACT_WEBHOOK_URL` only if you want to override it.
+
+## Production vs test URL
+
+| | |
+|---|---|
+| `/webhook/contact-form` | **Production.** Live whenever the workflow is Active. This is the one the site uses. |
+| `/webhook-test/contact-form` | Test only. Answers only while the editor is open with *Listen for test event* armed, and for a single execution. Never point the site at this. |
+
+A `403` from the production URL means active and protected. A `404` means the
+workflow is not active.
 
 ## Smoke test
 

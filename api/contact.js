@@ -4,6 +4,7 @@
    n8n webhook, which does the email and the sheet row. The webhook URL and its
    shared secret live in Vercel env vars and never reach the client. */
 
+const DEFAULT_WEBHOOK = "https://n8n.srv925030.hstgr.cloud/webhook/contact-form";
 const LIMITS = { name: 200, email: 200, company: 200, interest: 200, message: 5000 };
 const MIN_FILL_MS = 3000;
 const FORWARD_TIMEOUT_MS = 8000;
@@ -50,10 +51,14 @@ module.exports = async (req, res) => {
     return res.status(400).json({ error: "invalid_submission" });
   }
 
-  const webhook = process.env.N8N_CONTACT_WEBHOOK_URL;
+  /* The production webhook path, not /webhook-test/ — the test URL only answers
+     while the n8n editor is listening, and then for a single execution. The URL
+     is not sensitive (the Header Auth secret is what protects the endpoint), so
+     it is defaulted here and the secret is the only variable that must be set. */
+  const webhook = process.env.N8N_CONTACT_WEBHOOK_URL || DEFAULT_WEBHOOK;
   const secret = process.env.N8N_WEBHOOK_SECRET;
-  if (!webhook || !secret) {
-    console.error("contact: N8N_CONTACT_WEBHOOK_URL or N8N_WEBHOOK_SECRET is unset");
+  if (!secret) {
+    console.error("contact: N8N_WEBHOOK_SECRET is unset — set it in Vercel and redeploy");
     return res.status(502).json({ error: "not_configured" });
   }
 
