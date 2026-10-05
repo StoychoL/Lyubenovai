@@ -1,0 +1,169 @@
+{
+  "name": "Website contact form",
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "saveDataErrorExecution": "all",
+    "saveDataSuccessExecution": "all"
+  },
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "contact-form",
+        "authentication": "headerAuth",
+        "responseMode": "onReceived",
+        "responseCode": 200,
+        "options": {}
+      },
+      "id": "a1b2c3d4-0001-4000-8000-000000000001",
+      "name": "Contact form webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [-180, 0],
+      "webhookId": "a1b2c3d4-0001-4000-8000-000000000001",
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "",
+          "name": "Contact form secret"
+        }
+      },
+      "notes": "Header Auth credential: name X-Contact-Secret, value must equal the Vercel env var N8N_WEBHOOK_SECRET. Responds immediately so the visitor is not kept waiting on Sheets and Gmail."
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "f0000000-0000-4000-8000-000000000001",
+              "name": "timestamp",
+              "value": "={{ $json.body.submittedAt || $now.toISO() }}",
+              "type": "string"
+            },
+            {
+              "id": "f0000000-0000-4000-8000-000000000002",
+              "name": "name",
+              "value": "={{ $json.body.name }}",
+              "type": "string"
+            },
+            {
+              "id": "f0000000-0000-4000-8000-000000000003",
+              "name": "email",
+              "value": "={{ $json.body.email }}",
+              "type": "string"
+            },
+            {
+              "id": "f0000000-0000-4000-8000-000000000004",
+              "name": "company",
+              "value": "={{ $json.body.company || '-' }}",
+              "type": "string"
+            },
+            {
+              "id": "f0000000-0000-4000-8000-000000000005",
+              "name": "interest",
+              "value": "={{ $json.body.interest || 'Not specified' }}",
+              "type": "string"
+            },
+            {
+              "id": "f0000000-0000-4000-8000-000000000006",
+              "name": "message",
+              "value": "={{ $json.body.message }}",
+              "type": "string"
+            },
+            {
+              "id": "f0000000-0000-4000-8000-000000000007",
+              "name": "userAgent",
+              "value": "={{ $json.body.userAgent || '' }}",
+              "type": "string"
+            },
+            {
+              "id": "f0000000-0000-4000-8000-000000000008",
+              "name": "referer",
+              "value": "={{ $json.body.referer || '' }}",
+              "type": "string"
+            }
+          ]
+        },
+        "includeOtherFields": false,
+        "options": {}
+      },
+      "id": "a1b2c3d4-0002-4000-8000-000000000002",
+      "name": "Normalise lead",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [40, 0],
+      "notes": "Field names match the sheet header row exactly, which is what lets the Sheets node auto-map."
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "PASTE_GOOGLE_SHEET_ID_HERE",
+          "mode": "id"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Leads"
+        },
+        "columns": {
+          "mappingMode": "autoMapInputData",
+          "value": {},
+          "matchingColumns": [],
+          "schema": []
+        },
+        "options": {}
+      },
+      "id": "a1b2c3d4-0003-4000-8000-000000000003",
+      "name": "Log lead to sheet",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [260, 0],
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "",
+          "name": "LyubenovAi"
+        }
+      },
+      "notes": "Runs BEFORE Gmail on purpose: if Gmail credentials ever expire, the lead is still recorded. Header row must be: timestamp, name, email, company, interest, message, userAgent, referer"
+    },
+    {
+      "parameters": {
+        "sendTo": "hello@stoycholyubenov.com",
+        "subject": "=Project enquiry — {{ $json.interest }} — {{ $json.name }}",
+        "emailType": "html",
+        "message": "=<div style=\"font-family:-apple-system,Segoe UI,Helvetica,Arial,sans-serif;font-size:15px;line-height:1.6;color:#1a1a1a\">\n<h2 style=\"margin:0 0 16px;font-size:18px\">New enquiry from the website</h2>\n<table cellpadding=\"0\" cellspacing=\"0\" style=\"border-collapse:collapse;margin-bottom:20px\">\n<tr><td style=\"padding:4px 16px 4px 0;color:#666\">Name</td><td style=\"padding:4px 0\"><strong>{{ $json.name }}</strong></td></tr>\n<tr><td style=\"padding:4px 16px 4px 0;color:#666\">Email</td><td style=\"padding:4px 0\"><a href=\"mailto:{{ $json.email }}\">{{ $json.email }}</a></td></tr>\n<tr><td style=\"padding:4px 16px 4px 0;color:#666\">Company</td><td style=\"padding:4px 0\">{{ $json.company }}</td></tr>\n<tr><td style=\"padding:4px 16px 4px 0;color:#666\">Interest</td><td style=\"padding:4px 0\">{{ $json.interest }}</td></tr>\n<tr><td style=\"padding:4px 16px 4px 0;color:#666\">Received</td><td style=\"padding:4px 0\">{{ $json.timestamp }}</td></tr>\n</table>\n<div style=\"padding:16px;background:#f5f4f0;border-radius:8px;white-space:pre-wrap\">{{ $json.message }}</div>\n<p style=\"margin:20px 0 0;font-size:13px;color:#888\">Reply directly to this email to reach {{ $json.name }}.</p>\n</div>",
+        "options": {
+          "replyTo": "={{ $json.email }}",
+          "appendAttribution": false
+        }
+      },
+      "id": "a1b2c3d4-0004-4000-8000-000000000004",
+      "name": "Email me the lead",
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [480, 0],
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "",
+          "name": "LyubenovAi"
+        }
+      },
+      "notes": "Reply-To is the submitter, so hitting reply in the inbox answers the lead directly."
+    }
+  ],
+  "connections": {
+    "Contact form webhook": {
+      "main": [[{ "node": "Normalise lead", "type": "main", "index": 0 }]]
+    },
+    "Normalise lead": {
+      "main": [[{ "node": "Log lead to sheet", "type": "main", "index": 0 }]]
+    },
+    "Log lead to sheet": {
+      "main": [[{ "node": "Email me the lead", "type": "main", "index": 0 }]]
+    }
+  },
+  "pinData": {}
+}

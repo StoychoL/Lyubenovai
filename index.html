@@ -392,7 +392,7 @@
       <p class="section__label" data-i18n="contact.label">Contact</p>
       <h2 class="section__title" data-i18n="contact.title">Tell me what's slowing you down</h2>
 
-      <form class="form" id="contactForm" action="https://formspree.io/f/FORM_ID" method="POST" novalidate>
+      <form class="form" id="contactForm" action="/api/contact" method="POST" novalidate>
         <div class="form__row">
           <label><span data-i18n="contact.name">Full name</span><input type="text" name="name" required autocomplete="name" /></label>
           <label><span data-i18n="contact.email">Email address</span><input type="email" name="email" required autocomplete="email" /></label>
@@ -410,6 +410,9 @@
           </select>
         </label>
         <label><span data-i18n="contact.message">Tell me about your project</span><textarea name="message" rows="5" required data-i18n-placeholder="contact.placeholder" placeholder="Share your goals, the manual work you'd like gone, and any deadlines."></textarea></label>
+        <!-- Spam traps: bots fill the honeypot, and humans take longer than 3s to fill the form. -->
+        <input type="text" name="website" class="form__trap" tabindex="-1" autocomplete="off" aria-hidden="true" />
+        <input type="hidden" name="elapsed" id="formElapsed" />
         <button type="submit" class="btn btn--primary btn--block"><span data-i18n="contact.submit">Send your message</span> <span aria-hidden="true">↗</span></button>
         <p class="form__status" id="formStatus" role="status" aria-live="polite"></p>
       </form>

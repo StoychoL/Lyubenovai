@@ -620,6 +620,17 @@ html[lang="bg"] .marquee__track span { text-transform: uppercase; letter-spacing
   box-shadow: 0 0 0 3px color-mix(in srgb, var(--ivy) 25%, transparent);
 }
 .form textarea { resize: vertical; }
+
+/* Honeypot: off-screen rather than display:none, which many bots skip over.
+   Absolutely positioned so it adds no gap to the form's flex column. */
+.form__trap {
+  position: absolute;
+  left: -9999px;
+  width: 1px; height: 1px;
+  opacity: 0;
+  pointer-events: none;
+}
+.form button[disabled] { opacity: .6; cursor: progress; }
 .form__status { font-size: 14px; color: var(--ivy); min-height: 1.4em; }
 .form__status.is-error { color: #8a2f1f; }
 .form__status.is-ok { color: #3f6b26; }

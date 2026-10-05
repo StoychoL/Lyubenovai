@@ -18,12 +18,18 @@
   sidebar.querySelectorAll("a[href^='#']").forEach((a) => a.addEventListener("click", () => setMenu(false)));
 
   /* ---------- Contact form ---------- */
+  /* Posts to /api/contact, which forwards to n8n. Same origin, so no CORS and
+     no webhook URL or secret in the page source. */
   const form = document.getElementById("contactForm");
   const status = document.getElementById("formStatus");
+  const elapsedField = document.getElementById("formElapsed");
+  const submitBtn = form.querySelector("button[type='submit']");
   const FALLBACK_EMAIL = "hello@stoycholyubenov.com";
+  const loadedAt = Date.now();
 
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
+    if (submitBtn.disabled) return;
     status.className = "form__status";
 
     if (!form.checkValidity()) {
@@ -33,25 +39,18 @@
       return;
     }
 
-    const data = new FormData(form);
-    const usingPlaceholder = form.action.endsWith("/FORM_ID");
+    elapsedField.value = String(Date.now() - loadedAt);
+    const payload = Object.fromEntries(new FormData(form));
 
-    if (usingPlaceholder) {
-      const subject = encodeURIComponent(`${window.i18n.t("contact.subject")} — ${data.get("interest")}`);
-      const body = encodeURIComponent(
-        `Name: ${data.get("name")}\nEmail: ${data.get("email")}\nCompany: ${data.get("company") || "-"}\n\n${data.get("message")}`
-      );
-      window.location.href = `mailto:${FALLBACK_EMAIL}?subject=${subject}&body=${body}`;
-      status.textContent = window.i18n.t("contact.status.mailto");
-      return;
-    }
-
+    submitBtn.disabled = true;
+    form.setAttribute("aria-busy", "true");
     status.textContent = window.i18n.t("contact.status.sending");
+
     try {
       const res = await fetch(form.action, {
         method: "POST",
-        body: data,
-        headers: { Accept: "application/json" },
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify(payload),
       });
       if (!res.ok) throw new Error(res.statusText);
       form.reset();
@@ -60,6 +59,9 @@
     } catch {
       status.textContent = window.i18n.t("contact.status.error", { email: FALLBACK_EMAIL });
       status.classList.add("is-error");
+    } finally {
+      submitBtn.disabled = false;
+      form.removeAttribute("aria-busy");
     }
   });
 
