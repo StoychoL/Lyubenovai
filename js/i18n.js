@@ -303,6 +303,7 @@
         placeholder: "Share your goals, the manual work you'd like gone, and any deadlines.",
         submit: "Send your message",
         subject: "Project enquiry",
+        privacy: 'We\'ll only use your details to reply to your enquiry. See our <a href="privacy.html">privacy policy</a>.',
         status: {
           invalid: "Please fill in your name, email and a short message.",
           mailto: "Opening your email client…",
@@ -315,6 +316,8 @@
       footer: {
         copy: "© 2026 Stoycho Lyubenov. All rights reserved.",
         big: "Stoycho Lyubenov",
+        privacy: "Privacy policy",
+        company: "SL CONSULTINGS LIMITED · Company no. 14073575 · Registered office: 253 Peterborough Road, Carshalton, England, SM5 1DF",
       },
     },
 
@@ -618,6 +621,7 @@
         placeholder: "Споделете целите си, ръчната работа, от която искате да се освободите, и всякакви срокове.",
         submit: "Изпратете съобщение",
         subject: "Запитване за проект",
+        privacy: 'Ще използваме данните ви само за да отговорим на запитването ви. Вижте нашата <a href="privacy.html">политика за поверителност</a>.',
         status: {
           invalid: "Моля, попълнете име, имейл и кратко съобщение.",
           mailto: "Отваряме вашия имейл клиент…",
@@ -630,6 +634,8 @@
       footer: {
         copy: "© 2026 Стойчо Любенов. Всички права запазени.",
         big: "Стойчо Любенов",
+        privacy: "Поверителност",
+        company: "SL CONSULTINGS LIMITED · Фирмен № 14073575 · Седалище: 253 Peterborough Road, Carshalton, England, SM5 1DF",
       },
     },
   };

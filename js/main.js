@@ -65,6 +65,19 @@
     }
   });
 
+  /* ---------- Privacy links keep the current language ----------
+     privacy.html reads ?lang=, which covers visitors who arrived via ?lang=bg
+     (that isn't stored). i18n.js has already applied once before this file
+     runs, so tag the links now, then again after every switch — a switch also
+     rebuilds the form note's link via data-i18n-html. */
+  function tagPrivacyLinks() {
+    document.querySelectorAll('a[href^="privacy.html"]').forEach((a) => {
+      a.href = `privacy.html?lang=${window.i18n.lang}`;
+    });
+  }
+  tagPrivacyLinks();
+  document.addEventListener("i18n:applied", tagPrivacyLinks);
+
   /* ---------- Motion ---------- */
   if (reduced || !hasGsap) {
     document.documentElement.classList.add("no-motion");

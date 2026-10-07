@@ -631,6 +631,8 @@ html[lang="bg"] .marquee__track span { text-transform: uppercase; letter-spacing
   pointer-events: none;
 }
 .form button[disabled] { opacity: .6; cursor: progress; }
+.form__note { font-size: 13px; color: var(--ivy); }
+.form__note a { text-decoration: underline; text-underline-offset: 3px; }
 .form__status { font-size: 14px; color: var(--ivy); min-height: 1.4em; }
 .form__status.is-error { color: #8a2f1f; }
 .form__status.is-ok { color: #3f6b26; }
@@ -665,6 +667,7 @@ html[lang="bg"] .marquee__track span { text-transform: uppercase; letter-spacing
   letter-spacing: .02em;
 }
 .footer__copy { margin-top: 24px; font-size: 12px; color: var(--ivy); }
+.footer__company { margin-top: 6px; font-size: 11px; line-height: 1.5; color: var(--ivy); }
 
 /* ---------- Line masks for heading reveals ---------- */
 .line {
@@ -775,4 +778,53 @@ html[lang="bg"] .timeline__item h3 { font-size: 30px; }
 
 @media (max-width: 640px) {
   html[lang="bg"] .hero__title { font-size: clamp(42px, 13.8vw, 76px); }
+}
+
+/* ---------- Legal pages (privacy.html) ---------- */
+/* No sidebar here, so the bar and footer sit full width */
+.legal-page .footer { margin-left: 0; }
+.legal-bar {
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  padding: 18px var(--pad);
+  border-bottom: 1px solid var(--khaki);
+}
+.legal-bar__name { font-family: var(--font-display); font-size: 26px; letter-spacing: .02em; }
+.legal-bar__actions { display: flex; align-items: center; gap: 18px; }
+.legal-bar__back { font-size: 14px; color: var(--ivy); }
+.legal-bar__back:hover { color: var(--serpentine); }
+html[lang="bg"] .legal-bar__name { font-family: "Oswald", var(--font-body); font-size: 22px; }
+
+.legal { max-width: 760px; margin: 0 auto; padding: clamp(40px, 7vw, 88px) var(--pad); }
+.legal__label { font-size: 12px; letter-spacing: .12em; text-transform: uppercase; color: var(--ivy); }
+.legal h1 {
+  margin: 10px 0 8px;
+  font-family: var(--font-display);
+  font-size: clamp(44px, 7vw, 72px);
+  line-height: 1;
+  font-weight: 400;
+}
+html[lang="bg"] .legal h1 { font-family: "Oswald", var(--font-body); font-weight: 500; font-size: clamp(34px, 5.5vw, 56px); line-height: 1.1; }
+.legal__updated { font-size: 14px; color: var(--ivy); }
+.legal h2 {
+  margin: 44px 0 12px;
+  padding-top: 24px;
+  border-top: 1px solid var(--khaki);
+  font-size: 19px;
+  font-weight: 600;
+  line-height: 1.35;
+}
+.legal p, .legal li { font-size: 16px; line-height: 1.7; }
+.legal p + p, .legal p + ul, .legal ul + p { margin-top: 12px; }
+.legal ul { list-style: disc; padding-left: 22px; }
+.legal li + li { margin-top: 6px; }
+.legal a { text-decoration: underline; text-underline-offset: 3px; }
+.legal address {
+  margin-top: 12px; padding: 18px 20px;
+  font-style: normal; line-height: 1.7;
+  background: var(--white); border-radius: 12px;
+}
+
+@media (max-width: 640px) {
+  .legal-bar { flex-wrap: wrap; }
+  .legal-bar__name { font-size: 22px; }
 }
